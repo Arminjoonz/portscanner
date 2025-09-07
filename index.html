@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PortScanner</title>
+    <style>
+        body {
+            background: #0a0f18;
+            color: #00ffae;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .logo {
+            width: 120px;
+            margin: 20px auto;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        input {
+            width: 250px;
+            text-align: center;
+        }
+        button {
+            background: #00ffae;
+            color: #0a0f18;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #111;
+            padding: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://i.ibb.co/jr3gkSh/portscanner-logo.png" class="logo" alt="PortScanner Logo">
+    <h1>PortScanner</h1>
+    <p>Enter a target IP or domain:</p>
+    <input type="text" id="target" placeholder="example.com">
+    <button onclick="scan()">Start Scan</button>
+    <div class="result" id="output">Results will appear here...</div>
+
+    <script>
+        async function scan() {
+            const target = document.getElementById('target').value;
+            const output = document.getElementById('output');
+            output.innerHTML = Scanning ${target}...;
+
+            // Dummy scan simulation
+            setTimeout(() => {
+                output.innerHTML = 
+                Scan complete for <b>${target}</b><br>
+                - Port 80: Open<br>
+                - Port 443: Open<br>
+                - Port 22: Closed<br>
+                ;
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
